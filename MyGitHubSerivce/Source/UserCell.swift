@@ -53,6 +53,9 @@ final class UserCell: UITableViewCell {
         addSubview(itemImageView)
         addSubview(itemTitle)
         addSubview(itemDetail)
+        
+        // 승진: left, right써도 되는데, leading, trailing을 더 선호!
+        // left와 leading, right와 trailing의 차이를 알아봐! 아주 중요!
        
         //SnapLit
         itemImageView.snp.makeConstraints{ make in
@@ -72,6 +75,13 @@ final class UserCell: UITableViewCell {
             make.leading.equalTo(itemImageView.snp.trailing).offset(Constant.basicMargin)
             make.top.equalTo(itemTitle.snp.bottom).offset((Constant.basicMargin) / 2)
         }
+    }
+    
+    func configureUI(with user: UserModel) {
+        guard let id = user.id else { return }
+        itemTitle.text = String(id)
+        itemDetail.text = user.login
+        itemImageView.kf.setImage(with: user.avatar_url)
     }
     
 }

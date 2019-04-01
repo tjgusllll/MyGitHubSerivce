@@ -10,7 +10,10 @@ import Alamofire
  
 class GitHubService: GitHubServiceType {
     func requestGitHubAllUser(completion: @escaping (Result<[UserModel]>) -> ()) {
-        Alamofire.request(Router.userAll).validate().responseData { response in
+        // 승진: 보통 이렇게 .다음엔 내려서 쓰는게 좋아
+        Alamofire.request(Router.userAll)
+            .validate()
+            .responseData { response in
             switch response.result {
             case .success(let value):
                 do {

@@ -15,4 +15,5 @@ struct UserModel : Codable{
     var login : String?
 }
 
-var userlist : [UserModel] = [UserModel]()
+//승진: 이렇게 만드는거 ㄴ ㄴ
+//var userlist : [UserModel] = [UserModel]()
