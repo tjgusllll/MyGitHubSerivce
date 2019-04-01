@@ -15,7 +15,7 @@ class GitHubService: GitHubServiceType {
             case .success(let value):
                 do {
                     let result = try JSONDecoder().decode([UserModel].self, from: value)
-                    print(result)
+                    //print(result)
                     completion(Result.success(result))
                 } catch {
                     completion(Result.failure(ServiceError.decodeError))

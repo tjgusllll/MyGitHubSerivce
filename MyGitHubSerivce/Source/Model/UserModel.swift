@@ -14,4 +14,5 @@ struct UserModel : Codable{
     var id : Int?
     var login : String?
 }
-//var userlist: [UserModel] = [UserModel]()
+
+var userlist : [UserModel] = [UserModel]()

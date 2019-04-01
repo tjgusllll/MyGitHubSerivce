@@ -41,7 +41,7 @@ enum Router: URLRequestConvertible {
         default:
             break
         }
-
+        
         return urlRequest
     }
 }
