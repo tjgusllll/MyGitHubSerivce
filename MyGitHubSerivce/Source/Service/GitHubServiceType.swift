@@ -7,7 +7,7 @@
 //
 
 import Alamofire
-
+ 
 protocol GitHubServiceType {
     func requestGitHubAllUser(completion: @escaping (Result<[UserModel]>) -> ())
 }

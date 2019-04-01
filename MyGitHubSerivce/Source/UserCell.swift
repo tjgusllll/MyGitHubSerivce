@@ -18,7 +18,7 @@ final class UserCell: UITableViewCell {
         static let itemImageSize: CGFloat = 100
         static let addButtonSize: CGFloat = 50
     }
-    
+     
     //MARK:- UI Properties
     
     let itemImageView: UIImageView = {

@@ -11,7 +11,7 @@ import Alamofire
 
 enum Router: URLRequestConvertible {
     case userAll
-    
+     
     static let baseURL = "https://api.github.com"
     
     var method: HTTPMethod {

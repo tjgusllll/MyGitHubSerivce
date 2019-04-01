@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         gihubGetAll()
     }
 }
-
+ 
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     

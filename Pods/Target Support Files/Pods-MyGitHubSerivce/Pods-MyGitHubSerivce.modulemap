@@ -1,0 +1,6 @@
+framework module Pods_MyGitHubSerivce {
+  umbrella header "Pods-MyGitHubSerivce-umbrella.h"
+
+  export *
+  module * { export * }
+}

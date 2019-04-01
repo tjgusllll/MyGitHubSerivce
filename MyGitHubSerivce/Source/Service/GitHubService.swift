@@ -7,7 +7,7 @@
 //
 
 import Alamofire
-
+ 
 class GitHubService: GitHubServiceType {
     func requestGitHubAllUser(completion: @escaping (Result<[UserModel]>) -> ()) {
         Alamofire.request(Router.userAll).validate().responseData { response in
