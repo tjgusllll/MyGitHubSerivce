@@ -9,5 +9,5 @@
 import Alamofire
  
 protocol GitHubServiceType {
-    func requestGitHubAllUser(completion: @escaping (Result<[UserModel]>) -> ())
+    func requestGitHubAllUser(since: Int, completion: @escaping (Result<[UserModel]>) -> ())
 }

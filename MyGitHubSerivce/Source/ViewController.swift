@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     var pageArr: [UserModel] = []
     let limit: Int = 10
     
+    
     func setupUI() {
         self.tableview.dataSource = self
         self.tableview.delegate = self
@@ -43,8 +44,8 @@ class ViewController: UIViewController {
     
     
     //MARK:- GitHubService Call
-    func gihubGetAll() {
-        githubService.requestGitHubAllUser() { result in
+    func gihubGetAll(since: Int) {
+        githubService.requestGitHubAllUser(since: since) { result in
             switch result {
             case .success(let response):
                 self.resetUserlist(response)
@@ -63,7 +64,8 @@ class ViewController: UIViewController {
         for i in 0..<limit {
             pageArr.append(userList[i])
         }
-        //print("-------")
+        print("-------")
+        
         DispatchQueue.main.async {
             self.tableview.reloadData()
         }
@@ -73,7 +75,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        gihubGetAll()
+        gihubGetAll(since: 0)
     }
 }
  
@@ -103,26 +105,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastItem = pageArr.count - 1
         if indexPath.row == lastItem {
-            loadMoreData()
+            print("willDisplay lastID   :   \(lastItem)")
+            loadMoreData(since: pageArr[indexPath.row].id)
         }
     }
     
-    func loadMoreData( ){
-        for _ in 1...limit {
-            let last = pageArr.count
-            if last < userList.count {
-                pageArr.append(userList[last])
-                print(pageArr[last].id!)
-            } else {
-                break
-            }
-        }
-        //print("---")
-        self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
-    }
-    
-    @objc func loadTable() {
-        self.tableview.reloadData()
+    func loadMoreData(since: Int?){
+        guard let lastId = since else { return }
+        gihubGetAll(since: lastId)
     }
 }
 

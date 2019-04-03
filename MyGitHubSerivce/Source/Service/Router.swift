@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum Router: URLRequestConvertible {
-    case userAll
+    case userAll(since: Int)
      
     static let baseURL = "https://api.github.com"
     
@@ -23,10 +23,11 @@ enum Router: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .userAll:
+        case .userAll(_):
             return "/users"
         }
     }
+
     
     // MARK: URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
@@ -34,10 +35,11 @@ enum Router: URLRequestConvertible {
 
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
-
+        
         switch self {
-        case .userAll:
-            urlRequest = try URLEncoding.default.encode(urlRequest, with: nil)
+        case .userAll(let since):
+            let params: Parameters = ["since":since]
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
         default:
             break
         }
