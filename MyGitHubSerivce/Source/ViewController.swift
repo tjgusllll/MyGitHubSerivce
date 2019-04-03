@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     let githubService = GitHubService()
     //pagination
     var pageArr: [UserModel] = []
-    let limit: Int = 10
+    let limit: Int = 20
     
     
     func setupUI() {
@@ -49,6 +49,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let response):
                 self.resetUserlist(response)
+               // print(response)
             case .failure(let response):
                 print(response)
             }
