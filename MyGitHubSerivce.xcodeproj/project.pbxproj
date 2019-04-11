@@ -56,6 +56,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5CA3B726225F4BAE0014294E /* AllUser */ = {
+			isa = PBXGroup;
+			children = (
+				C325C4642250D28000E36731 /* ViewController.swift */,
+				5CA3B728225F4BE00014294E /* UserCell */,
+			);
+			path = AllUser;
+			sourceTree = "<group>";
+		};
+		5CA3B727225F4BBD0014294E /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C33CC57522575B0E008E0A49 /* DetailViewController.swift */,
+				5CA3B729225F4BF30014294E /* UserDetailCell */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		5CA3B728225F4BE00014294E /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				C325C47B22511BDE00E36731 /* UserCell.swift */,
+			);
+			path = UserCell;
+			sourceTree = "<group>";
+		};
+		5CA3B729225F4BF30014294E /* UserDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				C33CC573225757EE008E0A49 /* UserDetailCell.swift */,
+				C33CC584225F14A9008E0A49 /* UserRepositoryCell.swift */,
+			);
+			path = UserDetailCell;
+			sourceTree = "<group>";
+		};
 		C325C4562250D28000E36731 = {
 			isa = PBXGroup;
 			children = (
@@ -97,11 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				C325C4622250D28000E36731 /* AppDelegate.swift */,
-				C325C4642250D28000E36731 /* ViewController.swift */,
-				C33CC57522575B0E008E0A49 /* DetailViewController.swift */,
-				C325C47B22511BDE00E36731 /* UserCell.swift */,
-				C33CC573225757EE008E0A49 /* UserDetailCell.swift */,
-				C33CC584225F14A9008E0A49 /* UserRepositoryCell.swift */,
+				5CA3B726225F4BAE0014294E /* AllUser */,
+				5CA3B727225F4BBD0014294E /* UserDetail */,
 				C325C4872251E58B00E36731 /* Model */,
 				C325C4762250DB8500E36731 /* Service */,
 			);

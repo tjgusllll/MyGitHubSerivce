@@ -11,6 +11,23 @@ import SnapKit
 
 class DetailViewController: UIViewController {
     
+//    enum Section: Int {
+//        case userInfo
+//        case userRepositories
+//        case totalCount
+//    }
+//
+//    enum Row: Int {
+//        case ~~
+//    }
+    
+    struct UI {
+        static let userInfoSectionHeight: CGFloat = 150
+        static let userRepositoriesSectionHeight: CGFloat = 100
+    }
+    
+    
+    
     // MARK:- Properties
     var username: String?
     var userDetail = UserDetailModel()
@@ -94,6 +111,9 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // 승진 : 이런 숫자같은것들 그냥 쓰면안되! 나쁜 버릇
+        // 이런식으로 Enum을 쓰든 struct등을 만들어서 관리를 해야되!
+//        return Section.totalCount.rawValue
         return 2
     }
     
@@ -108,6 +128,8 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 여기도 0 말고 Section.userInfo.rawValue 이렇게!
+        
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserDetail", for: indexPath) as! UserDetailCell
             cell.configureUserUI(with: self.userDetail)
@@ -121,9 +143,12 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 150
+            // 승진: 이런 숫자들도 그냥 쓰지말구
+            
+            return 150 // return UI.userInfoSectionHeight
         } else {
-            return 100
+            
+            return 100 // return UI.userRepositoriesSectionHeight
         }
     }
     
