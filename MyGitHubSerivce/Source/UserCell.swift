@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-
+import Kingfisher //XCode 10은 4.10.0을 설치해야함. 10이상은 4.0설치!
 
 final class UserCell: UITableViewCell {
     
@@ -18,7 +18,8 @@ final class UserCell: UITableViewCell {
         static let itemImageSize: CGFloat = 100
         static let addButtonSize: CGFloat = 50
     }
-     
+    
+    
     //MARK:- UI Properties
     
     let itemImageView: UIImageView = {
@@ -39,8 +40,6 @@ final class UserCell: UITableViewCell {
     
     
     
-    
-    
     //MARK:- Initialize
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -57,10 +56,6 @@ final class UserCell: UITableViewCell {
         addSubview(itemTitle)
         addSubview(itemDetail)
         
-        // 승진: left, right써도 되는데, leading, trailing을 더 선호!
-        // left와 leading, right와 trailing의 차이를 알아봐! 아주 중요!
-       
-        //SnapLit
         itemImageView.snp.makeConstraints{ make in
             make.top.equalTo(self.snp.top)
             make.leading.equalTo(self.snp.leading).offset(Constant.basicMargin)
@@ -80,6 +75,8 @@ final class UserCell: UITableViewCell {
         }
     }
     
+    
+    //MARK:- ConfigureUI
     func configureUI(with user: UserModel) {
         guard let id = user.id else { return }
         itemTitle.text = String(id)

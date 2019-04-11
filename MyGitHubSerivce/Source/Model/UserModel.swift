@@ -8,12 +8,28 @@
 
 import Foundation
 
-struct UserModel : Codable{
-    
+struct UserModel : Codable {
     var avatar_url : URL?
     var id : Int?
     var login : String?
+    var name : String?
+    
 }
 
-//승진: 이렇게 만드는거 ㄴ ㄴ
-//var userlist : [UserModel] = [UserModel]()
+struct UserDetailModel : Codable {
+    var avatar_url : URL?
+    var login : String?
+    var name : String?
+    var location : String?
+    var company : String?
+    var followers : Int?
+    var following : Int?
+}
+
+struct UserRepositoryModel : Codable {
+    var name : String?
+    var description : String?
+    var stargazers_count : Int?
+    var watchers_count : Int?
+    var created_at : String?
+}

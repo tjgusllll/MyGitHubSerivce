@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher //XCode 10은 4.10.0을 설치해야함. 10이상은 4.0설치!
 import SnapKit
 
 
@@ -36,8 +35,6 @@ class ViewController: UIViewController {
         
         //SnapKit
         tableview.snp.makeConstraints{ make in
-            
-            //승진: 위아래양옆 같은 것은 edges로 한번에 할 수 있어! 팁이야!
             make.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
@@ -49,23 +46,17 @@ class ViewController: UIViewController {
             switch result {
             case .success(let response):
                 self.resetUserlist(response)
-               // print(response)
             case .failure(let response):
                 print(response)
             }
         }
     }
-
     
-    //githubGetAll()에서 받아온 데이터를 userlist에 담아주고 tableview reload
     func resetUserlist(_ response: [UserModel]) {
-        
-        //승진: 모델에 객체 선언하는것 보단 위에 전전역으로 모델 선언하는게 좋은듯!
         userList = response
         for i in 0..<limit {
             pageArr.append(userList[i])
         }
-        print("-------")
         
         DispatchQueue.main.async {
             self.tableview.reloadData()
@@ -87,7 +78,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return pageArr.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         
@@ -103,6 +93,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    //MARK:- Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastItem = pageArr.count - 1
         if indexPath.row == lastItem {
@@ -114,6 +105,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func loadMoreData(since: Int?){
         guard let lastId = since else { return }
         gihubGetAll(since: lastId)
+    }
+    
+    
+    
+    //MARK:- UserDetail Navigation
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        detailVC.username = pageArr[indexPath.row].login
+        navigationController?.pushViewController(detailVC, animated: false)
     }
 }
 
