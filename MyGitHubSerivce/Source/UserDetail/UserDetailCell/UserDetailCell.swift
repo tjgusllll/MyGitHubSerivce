@@ -18,6 +18,10 @@ final class UserDetailCell: UITableViewCell {
         static let itemImageSize: CGFloat = 150
     }
     
+    struct UI {
+        static let labelFontSize: CGFloat = 8
+    }
+    
     
     //MARK:- UI Properties
     
@@ -29,37 +33,37 @@ final class UserDetailCell: UITableViewCell {
     
     let itemLogin: UILabel = {
         let label = UILabel()
-        label.font.withSize(8)
+        label.font.withSize(UI.labelFontSize)
         return label
         
     }()
     let itemName: UILabel = {
         let label = UILabel()
-        label.font.withSize(8)
+        label.font.withSize(UI.labelFontSize)
         return label
         
     }()
     let itemLocation: UILabel = {
         let label = UILabel()
-        label.font.withSize(8)
+        label.font.withSize(UI.labelFontSize)
         return label
         
     }()
     let itemCompany: UILabel = {
         let label = UILabel()
-        label.font.withSize(8)
+        label.font.withSize(UI.labelFontSize)
         return label
         
     }()
     let itemFollowers: UILabel = {
         let label = UILabel()
-        label.font.withSize(8)
+        label.font.withSize(UI.labelFontSize)
         return label
         
     }()
     let itemFollowing: UILabel = {
         let label = UILabel()
-        label.font.withSize(8)
+        label.font.withSize(UI.labelFontSize)
         return label
         
     }()
@@ -131,7 +135,6 @@ final class UserDetailCell: UITableViewCell {
         
         itemLocation.snp.makeConstraints { make in
             make.top.equalTo(itemName.snp.bottom).offset(Constant.basicMargin)
-            //make.leading.equalTo(itemImageView.snp.trailing).offset(Constant.basicMargin)
             make.leading.equalTo(itemName.snp.leading)
         }
         

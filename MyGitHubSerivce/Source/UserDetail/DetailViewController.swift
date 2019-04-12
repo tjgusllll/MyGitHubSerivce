@@ -21,6 +21,12 @@ class DetailViewController: UIViewController {
 //        case ~~
 //    }
     
+    enum Section: Int {
+        case userInfo = 0
+        case userRepos = 1
+        case totalCount = 2
+    }
+    
     struct UI {
         static let userInfoSectionHeight: CGFloat = 150
         static let userRepositoriesSectionHeight: CGFloat = 100
@@ -83,8 +89,6 @@ class DetailViewController: UIViewController {
         githubDetailService.requestGitHubUserRepository(name: username, page: page) { result in
             switch result {
             case .success(let response):
-                //self.userReposList = response
-                //self.tableview.reloadData()
                 self.resetReposList(response)
                 self.page += 1
             case .failure(let response):
@@ -100,6 +104,7 @@ class DetailViewController: UIViewController {
             pageReposArr.append(repos)
         }
         
+        
         DispatchQueue.main.async {
             self.tableview.reloadData()
         }
@@ -114,14 +119,15 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         // 승진 : 이런 숫자같은것들 그냥 쓰면안되! 나쁜 버릇
         // 이런식으로 Enum을 쓰든 struct등을 만들어서 관리를 해야되!
 //        return Section.totalCount.rawValue
-        return 2
+        
+        return Section.totalCount.rawValue
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
-            return pageReposArr.count   //userReposList.count
+            return pageReposArr.count
         }
         
     }
@@ -130,7 +136,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 여기도 0 말고 Section.userInfo.rawValue 이렇게!
         
-        if indexPath.section == 0 {
+        if indexPath.section == Section.userInfo.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserDetail", for: indexPath) as! UserDetailCell
             cell.configureUserUI(with: self.userDetail)
             return cell
@@ -142,13 +148,13 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+        if indexPath.section == Section.userInfo.rawValue {
             // 승진: 이런 숫자들도 그냥 쓰지말구
             
-            return 150 // return UI.userInfoSectionHeight
+            return UI.userInfoSectionHeight // return UI.userInfoSectionHeight
         } else {
             
-            return 100 // return UI.userRepositoriesSectionHeight
+            return UI.userRepositoriesSectionHeight // return UI.userRepositoriesSectionHeight
         }
     }
     
@@ -157,7 +163,6 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastItem = pageReposArr.count - 1
         if indexPath.row == lastItem {
-            //print("willDisplay lastID   :   \(lastItem)")
             loadMoreData(username: self.username, page: self.page)
         }
     }

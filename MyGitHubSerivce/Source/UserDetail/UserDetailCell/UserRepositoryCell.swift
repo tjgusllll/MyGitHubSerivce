@@ -16,6 +16,7 @@ final class UserRepositoryCell: UITableViewCell {
     //MARK:- Constant
     struct Constant {
         static let basicMargin: CGFloat = 10
+        static let descriptionWidth : CGFloat = 250
     }
     
     
@@ -110,7 +111,7 @@ final class UserRepositoryCell: UITableViewCell {
         itemDescription.snp.makeConstraints {make in
             make.top.equalTo(itemName.snp.bottom).offset(Constant.basicMargin)
             make.leading.equalTo(itemName.snp.leading)
-            make.width.equalTo(250)
+            make.width.equalTo(Constant.descriptionWidth)
         }
         
         itemStar.snp.makeConstraints { make in

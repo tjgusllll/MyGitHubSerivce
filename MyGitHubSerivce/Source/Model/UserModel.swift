@@ -18,21 +18,3 @@ struct UserModel : Codable {
     var name : String?
     
 }
-
-struct UserDetailModel : Codable {
-    var avatar_url : URL?
-    var login : String?
-    var name : String?
-    var location : String?
-    var company : String?
-    var followers : Int?
-    var following : Int?
-}
-
-struct UserRepositoryModel : Codable {
-    var name : String?
-    var description : String?
-    var stargazers_count : Int?
-    var watchers_count : Int?
-    var created_at : String?
-}

@@ -20,6 +20,8 @@
 		C33CC574225757EE008E0A49 /* UserDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33CC573225757EE008E0A49 /* UserDetailCell.swift */; };
 		C33CC57622575B0E008E0A49 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33CC57522575B0E008E0A49 /* DetailViewController.swift */; };
 		C33CC585225F14A9008E0A49 /* UserRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33CC584225F14A9008E0A49 /* UserRepositoryCell.swift */; };
+		C33CC587225FBF92008E0A49 /* UserDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33CC586225FBF92008E0A49 /* UserDetailModel.swift */; };
+		C33CC589225FBFA5008E0A49 /* UserRepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33CC588225FBFA5008E0A49 /* UserRepositoryModel.swift */; };
 		C9DE13AD7AA4516A3D022361 /* Pods_MyGitHubSerivce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C1AA84DE4C5E0FD5EBA781 /* Pods_MyGitHubSerivce.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		C33CC573225757EE008E0A49 /* UserDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailCell.swift; sourceTree = "<group>"; };
 		C33CC57522575B0E008E0A49 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C33CC584225F14A9008E0A49 /* UserRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryCell.swift; sourceTree = "<group>"; };
+		C33CC586225FBF92008E0A49 /* UserDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailModel.swift; sourceTree = "<group>"; };
+		C33CC588225FBFA5008E0A49 /* UserRepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryModel.swift; sourceTree = "<group>"; };
 		C72587BA27868F6C9ACBF01A /* Pods-MyGitHubSerivce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGitHubSerivce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyGitHubSerivce/Pods-MyGitHubSerivce.debug.xcconfig"; sourceTree = "<group>"; };
 		E5C1AA84DE4C5E0FD5EBA781 /* Pods_MyGitHubSerivce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGitHubSerivce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				C325C48122511FBD00E36731 /* UserModel.swift */,
+				C33CC586225FBF92008E0A49 /* UserDetailModel.swift */,
+				C33CC588225FBFA5008E0A49 /* UserRepositoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,7 +311,9 @@
 				C325C47C22511BDE00E36731 /* UserCell.swift in Sources */,
 				C325C4652250D28000E36731 /* ViewController.swift in Sources */,
 				C33CC585225F14A9008E0A49 /* UserRepositoryCell.swift in Sources */,
+				C33CC589225FBFA5008E0A49 /* UserRepositoryModel.swift in Sources */,
 				C325C47E22511D9E00E36731 /* Router.swift in Sources */,
+				C33CC587225FBF92008E0A49 /* UserDetailModel.swift in Sources */,
 				C33CC574225757EE008E0A49 /* UserDetailCell.swift in Sources */,
 				C33CC57622575B0E008E0A49 /* DetailViewController.swift in Sources */,
 				C325C47822511A0400E36731 /* GitHubService.swift in Sources */,
