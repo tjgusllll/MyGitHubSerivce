@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     
 
     //MARK:- UI Properties
+    struct UI {
+        static let backColor = UIColor(red: 207/255, green: 219/255, blue: 225/255, alpha: 1)
+    }
+    
+    
     var tableview: UITableView = {
         let tableview = UITableView(frame: .zero, style: .plain)
         tableview.register(UserCell.self , forCellReuseIdentifier: "UserCell")
@@ -80,15 +85,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
-        
-        /* 승진: 수정!
-            여기서 데이터 바인딩 처리하는것 보다 메서드 만드는 습관!
-         UserCell에 configureUI(userList: UserModel) 이런식으로 만들어서 cell에서 처리하게!
-         바인딩 처리는 cell == view 니까 view에서 처리하는게 맞음!
-         */
-        
-        //어때 훨씬 깔끔하지?
-        
+        cell.backgroundColor = UI.backColor
+        cell.selectionStyle = .none
         cell.configureUI(with: pageArr[indexPath.row])
         return cell
     }

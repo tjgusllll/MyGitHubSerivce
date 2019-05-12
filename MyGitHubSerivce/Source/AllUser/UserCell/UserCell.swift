@@ -64,15 +64,20 @@ final class UserCell: UITableViewCell {
             make.height.equalTo(Constant.itemImageSize)
         }
         
-        itemTitle.snp.makeConstraints{ make in
-            make.top.equalTo(self.snp.top).offset(Constant.basicMargin)
+        itemDetail.snp.makeConstraints{ make in
+            make.centerY.equalTo(itemImageView)
             make.leading.equalTo(itemImageView.snp.trailing).offset(Constant.basicMargin)
+            //make.top.equalTo(itemTitle.snp.bottom).offset((Constant.basicMargin) / 2)
         }
         
-        itemDetail.snp.makeConstraints{ make in
-            make.leading.equalTo(itemImageView.snp.trailing).offset(Constant.basicMargin)
-            make.top.equalTo(itemTitle.snp.bottom).offset((Constant.basicMargin) / 2)
+        itemTitle.snp.makeConstraints{ make in
+            make.centerY.equalTo(itemImageView)
+            //make.top.equalTo(self.snp.top).offset(Constant.basicMargin)
+            //make.leading.equalTo(itemImageView.snp.trailing).offset(Constant.basicMargin)
+            make.trailing.equalTo(self.snp.trailing).offset(-Constant.basicMargin)
         }
+        
+        
     }
     
     

@@ -117,7 +117,7 @@ final class UserDetailCell: UITableViewCell {
         
         itemImageView.snp.makeConstraints{ make in
             make.top.equalTo(self.snp.top)
-            make.leading.equalTo(self.snp.leading).offset(Constant.basicMargin)
+            make.trailing.equalTo(self.snp.trailing)//.offset(-Constant.basicMargin)
             make.bottom.equalTo(self.snp.bottom)
             make.width.equalTo(Constant.itemImageSize)
             make.height.equalTo(Constant.itemImageSize)
@@ -125,33 +125,34 @@ final class UserDetailCell: UITableViewCell {
         
         itemLogin.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top).offset(Constant.basicMargin)
-            make.leading.equalTo(itemImageView.snp.trailing).offset(Constant.basicMargin)
+            make.leading.equalTo(Constant.basicMargin)
         }
         
         itemName.snp.makeConstraints { make in
             make.top.equalTo(itemLogin.snp.bottom).offset(Constant.basicMargin)
-            make.leading.equalTo(itemImageView.snp.trailing).offset(Constant.basicMargin)
+            make.leading.equalTo(Constant.basicMargin)
         }
         
         itemLocation.snp.makeConstraints { make in
             make.top.equalTo(itemName.snp.bottom).offset(Constant.basicMargin)
-            make.leading.equalTo(itemName.snp.leading)
+            make.leading.equalTo(Constant.basicMargin)
         }
         
         itemCompany.snp.makeConstraints { make in
             make.top.equalTo(itemLocation.snp.bottom).offset(Constant.basicMargin)
-            make.leading.equalTo(itemName.snp.leading)
+            make.leading.equalTo(Constant.basicMargin)
         }
         
         itemFollowers.snp.makeConstraints { make in
             make.top.equalTo(itemCompany.snp.bottom).offset(Constant.basicMargin)
-            make.leading.equalTo(itemName.snp.leading)
+            make.leading.equalTo(Constant.basicMargin)
             make.bottom.equalTo(self.snp.bottom).offset(-(Constant.basicMargin))
         }
         
         itemFollowing.snp.makeConstraints {make in
             make.top.equalTo(itemCompany.snp.bottom).offset(Constant.basicMargin)
-            make.trailing.equalTo(self.snp.trailing).offset(-(Constant.basicMargin))
+            make.trailing.equalTo(itemImageView.snp.leading).offset(-(Constant.basicMargin))
+            make.leading.greaterThanOrEqualTo(itemFollowers).offset(Constant.basicMargin)
             make.bottom.equalTo(self.snp.bottom).offset(-(Constant.basicMargin))
         }
     }

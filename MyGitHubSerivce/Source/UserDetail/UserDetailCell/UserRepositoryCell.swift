@@ -94,7 +94,7 @@ final class UserRepositoryCell: UITableViewCell {
     func setupUI() {
             addSubview(itemName)
             addSubview(itemDate)
-            addSubview(itemDescription)
+            //addSubview(itemDescription)
             addSubview(itemStar)
             addSubview(itemWatcher)
             
@@ -108,27 +108,28 @@ final class UserRepositoryCell: UITableViewCell {
             make.leading.equalTo(self.snp.leading).offset(Constant.basicMargin)
         }
         
-        itemDescription.snp.makeConstraints {make in
-            make.top.equalTo(itemName.snp.bottom).offset(Constant.basicMargin)
-            make.leading.equalTo(itemName.snp.leading)
-            make.width.equalTo(Constant.descriptionWidth)
-        }
+//        itemDescription.snp.makeConstraints {make in
+//            make.top.equalTo(itemName.snp.bottom).offset(Constant.basicMargin)
+//            make.leading.equalTo(itemName.snp.leading)
+//            make.width.equalTo(Constant.descriptionWidth)
+//        }
         
         itemStar.snp.makeConstraints { make in
-            make.top.equalTo(itemName.snp.top)
-            make.trailing.equalTo(self.snp.trailing).offset(-(Constant.basicMargin))
+            make.top.equalTo(itemName.snp.bottom).offset(Constant.basicMargin)
+            make.leading.equalTo(self.snp.leading).offset(Constant.basicMargin)
+            //make.trailing.equalTo(self.snp.trailing).offset(-(Constant.basicMargin))
         }
         
         itemWatcher.snp.makeConstraints { make in
             make.top.equalTo(itemStar.snp.bottom).offset(Constant.basicMargin)
-            make.trailing.equalTo(-(Constant.basicMargin))
+            make.leading.equalTo(self.snp.leading).offset(Constant.basicMargin)
         }
         
         itemDate.snp.makeConstraints { make in
             make.top.equalTo(itemWatcher.snp.bottom).offset(Constant.basicMargin)
-            make.trailing.equalTo(-(Constant.basicMargin))
+            make.trailing.equalTo(self.snp.trailing).offset(-(Constant.basicMargin))
             make.bottom.equalTo(self.snp.bottom).offset(-(Constant.basicMargin))
-           
+
         }
     }
 }

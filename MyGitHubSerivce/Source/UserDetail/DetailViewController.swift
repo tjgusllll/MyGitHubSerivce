@@ -10,16 +10,7 @@ import UIKit
 import SnapKit
 
 class DetailViewController: UIViewController {
-    
-//    enum Section: Int {
-//        case userInfo
-//        case userRepositories
-//        case totalCount
-//    }
-//
-//    enum Row: Int {
-//        case ~~
-//    }
+
     
     enum Section: Int {
         case userInfo = 0
@@ -29,7 +20,8 @@ class DetailViewController: UIViewController {
     
     struct UI {
         static let userInfoSectionHeight: CGFloat = 150
-        static let userRepositoriesSectionHeight: CGFloat = 100
+        static let userRepositoriesSectionHeight: CGFloat = 130
+        static let backColor = UIColor(red: 207/255, green: 219/255, blue: 225/255, alpha: 1)
     }
     
     
@@ -134,14 +126,13 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 여기도 0 말고 Section.userInfo.rawValue 이렇게!
-        
         if indexPath.section == Section.userInfo.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserDetail", for: indexPath) as! UserDetailCell
             cell.configureUserUI(with: self.userDetail)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserRepos", for: indexPath) as! UserRepositoryCell
+            cell.backgroundColor = UI.backColor
             cell.configureReposUI(with: self.pageReposArr[indexPath.row]) //self.userReposList[indexPath.row]
             return cell
         }
@@ -149,12 +140,10 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == Section.userInfo.rawValue {
-            // 승진: 이런 숫자들도 그냥 쓰지말구
-            
-            return UI.userInfoSectionHeight // return UI.userInfoSectionHeight
+            return UI.userInfoSectionHeight
         } else {
             
-            return UI.userRepositoriesSectionHeight // return UI.userRepositoriesSectionHeight
+            return UI.userRepositoriesSectionHeight
         }
     }
     
