@@ -16,7 +16,6 @@ final class UserCell: UITableViewCell {
     struct Constant {
         static let basicMargin: CGFloat = 20
         static let itemImageSize: CGFloat = 100
-        static let addButtonSize: CGFloat = 50
     }
     
     
