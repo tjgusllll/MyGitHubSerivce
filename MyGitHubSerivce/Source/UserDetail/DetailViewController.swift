@@ -108,10 +108,6 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // 승진 : 이런 숫자같은것들 그냥 쓰면안되! 나쁜 버릇
-        // 이런식으로 Enum을 쓰든 struct등을 만들어서 관리를 해야되!
-//        return Section.totalCount.rawValue
-        
         return Section.totalCount.rawValue
     }
     

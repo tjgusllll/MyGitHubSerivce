@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-// 승진: 모델 따로따로 파일 만들어서 관리해!
-
 struct UserModel : Codable {
     var avatar_url : URL?
     var id : Int?
